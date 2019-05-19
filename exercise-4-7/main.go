@@ -24,7 +24,6 @@ func main() {
 		defer conn.Close()
 
 		go serve(conn)
-		go write(conn)
 	}
 }
 
@@ -38,6 +37,8 @@ func serve(conn net.Conn) {
 			break
 		}
 	}
+
+	write(conn)
 }
 
 func write(conn net.Conn) {
